@@ -1,4 +1,2 @@
-# [Homepage](https://danggoodcode.com/startpage)
-Homepage avaliable for use now at danggoodcode.com/startpage
-
-![homepage](https://i.redd.it/cbnzq36zj3601.gif)
+# HOMEPAGE
+Fork of [Jaredk3nt](https://github.com/Jaredk3nt/homepage)'s homepage with additional background images.
