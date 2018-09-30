@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
     <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
@@ -26,48 +26,62 @@
             <div class="bookmark-set">
                 <div class="bookmark-title">Daily</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://inbox.google.com/" target="_blank">Inbox</a>
-                    <a class="bookmark" href="https://github.com/" target="_blank">Github</a>
-                    <a class="bookmark" href="https://drive.google.com/" target="_blank">Drive</a>
+                    <a class="bookmark" href="https://mail.google.com/" >Gmail</a>
+                    <a class="bookmark" href="https://github.com/" >Github</a>
+                    <a class="bookmark" href="https://drive.google.com/" >Drive</a>
+                    <a class="bookmark" href="https://www.office.com/" >Office</a>
+                    <a class="bookmark" href="https://calendar.google.com/calendar/r">Calendar</a>
                 </div>
             </div>
             <div class="bookmark-set">
                 <div class="bookmark-title">Media</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://youtube.com" target="_blank">Youtube</a>
-                    <a class="bookmark" href="https://netflix.com" target="_blank">Netflix</a>
-                    <a class="bookmark" href="https://crunchyroll.com" target="_blank">Crunchyroll</a>
-                    <a class="bookmark" href="https://" target="_blank">Amazon Prime</a>
+                    <a class="bookmark" href="https://youtube.com" >Youtube</a>
+                    <a class="bookmark" href="https://netflix.com" >Netflix</a>
+                    <a class="bookmark" href="https://thepiratebay-proxylist.se/" >TPB</a>
+                    <a class="bookmark" href="https://unsplash.com" >Unsplash</a>
                 </div>
             </div>
             <div class="bookmark-set">
             <div class="bookmark-title">Reddit</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://reddit.com/r/overwatch" target="_blank">/r/overwatch</a>
-                    <a class="bookmark" href="https://reddit.com/r/pcmasterrace" target="_blank">/r/pcmasterrace</a>
-                    <a class="bookmark" href="https://reddit.com/r/me_irl" target="_blank">/r/me_irl</a>
-                    <a class="bookmark" href="https://reddit.com/r/battlestations" target="_blank">/r/battlestations</a>
-                    <a class="bookmark" href="https://reddit.com/r/unixporn" target="_blank">/r/unixporn</a>
-                    
-                    <a class="bookmark" href="https://reddit.com/r/news" target="_blank">/r/news</a>
+                    <a class="bookmark" href="https://reddit.com/r/okbuddyretard" >/r/okbuddyretard</a>
+                    <a class="bookmark" href="https://reddit.com/r/unixporn" >/r/unixporn</a>
+                    <a class="bookmark" href="https://reddit.com/r/me_irl" >/r/me_irl</a>
+                    <a class="bookmark" href="https://reddit.com/r/battlestations" >/r/battlestations</a>
+                    <a class="bookmark" href="https://reddit.com/r/unixporn" >/r/unixporn</a>
+                    <a class="bookmark" href="https://reddit.com/r/news" >/r/news</a>
                 </div>
             </div>
             <div class="bookmark-set">
-                <div class="bookmark-title">Social</div>
+                <div class="bookmark-title">School</div>
                 <div class="bookmark-inner-container">
-                    <a class="bookmark" href="https://twitter.com" target="_blank">Twitter</a>
-                    <a class="bookmark" href="https://facebook.com" target="_blank">Facebook</a>
+                    <a class="bookmark" href="https://ps01.bergen.org" >PowerSchool</a>
+                    <a class="bookmark" href="https://bca.schoology.com/login/ldap?school=11897239">Schoology</a>
+                    <a class="bookmark" href="https://udemy.com" >Udemy</a>
+                    <a class="bookmark" href="https://www.overleaf.com/project">Overleaf</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+    document.addEventListener("keydown", event => {
+        if (event.keyCode == 32) {          // Spacebar code to open search
+            document.getElementById('search').style.display = 'flex';
+            document.getElementById('search-field').focus();
+        } else if (event.keyCode == 27) {   // Esc to close search
+            document.getElementById('search-field').value = '';
+            document.getElementById('search-field').blur();
+            document.getElementById('search').style.display = 'none';
+        }
+    });
         // Search on enter key event
+
         function search(e) {
             if (e.keyCode == 13) {
                 var val = document.getElementById("search-field").value;
-                window.open("https://google.com/search?q=" + val);
+                window.open("https://google.com/search?q=" + val, "_self");
             }
         }
         // Get current time and format
@@ -77,16 +91,16 @@
                 sec = date.getSeconds(),
                 hour = date.getHours();
 
-            return "" + 
-                (hour < 10 ? ("0" + hour) : hour) + ":" + 
-                (min < 10 ? ("0" + min) : min) + ":" + 
+            return "" +
+                (hour < 10 ? ("0" + hour) : hour) + ":" +
+                (min < 10 ? ("0" + min) : min) + ":" +
                 (sec < 10 ? ("0" + sec) : sec);
         }
 
         window.onload = () => {
             let xhr = new XMLHttpRequest();
             // Request to open weather map
-            xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=4737316&units=imperial&appid=e5b292ae2f9dae5f29e11499c2d82ece');
+            xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=5096742&units=imperial&appid=e5b292ae2f9dae5f29e11499c2d82ece');
             xhr.onload = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
@@ -108,16 +122,7 @@
             },100);
         }
 
-        document.addEventListener("keydown", event => {
-            if (event.keyCode == 32) {          // Spacebar code to open search
-                document.getElementById('search').style.display = 'flex';
-                document.getElementById('search-field').focus();
-            } else if (event.keyCode == 27) {   // Esc to close search
-                document.getElementById('search-field').value = '';
-                document.getElementById('search-field').blur();
-                document.getElementById('search').style.display = 'none';
-            }
-        });
+
     </script>
 </body>
 </html>
