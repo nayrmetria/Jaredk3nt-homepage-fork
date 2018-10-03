@@ -9,7 +9,7 @@ body {
     background-size: cover;
     background-color: #5F4B8B;
     margin: 0px;
-
+    overflow: hidden;
 }
 
 .container {
@@ -19,7 +19,6 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow: hidden;
 }
 
 #clock {
